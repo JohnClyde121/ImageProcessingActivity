@@ -1,0 +1,34 @@
+C:\Users\John Lyster\source\repos\ImageProcessingActivity\ImageProcessingActivity\bin\Debug\net8.0-windows\ImageProcessingActivity.exe
+C:\Users\John Lyster\source\repos\ImageProcessingActivity\ImageProcessingActivity\bin\Debug\net8.0-windows\ImageProcessingActivity.deps.json
+C:\Users\John Lyster\source\repos\ImageProcessingActivity\ImageProcessingActivity\bin\Debug\net8.0-windows\ImageProcessingActivity.runtimeconfig.json
+C:\Users\John Lyster\source\repos\ImageProcessingActivity\ImageProcessingActivity\bin\Debug\net8.0-windows\ImageProcessingActivity.dll
+C:\Users\John Lyster\source\repos\ImageProcessingActivity\ImageProcessingActivity\bin\Debug\net8.0-windows\ImageProcessingActivity.pdb
+C:\Users\John Lyster\source\repos\ImageProcessingActivity\ImageProcessingActivity\obj\Debug\net8.0-windows\ImageProcessingActivity.Form1.resources
+C:\Users\John Lyster\source\repos\ImageProcessingActivity\ImageProcessingActivity\obj\Debug\net8.0-windows\ImageProcessingActivity.csproj.GenerateResource.cache
+C:\Users\John Lyster\source\repos\ImageProcessingActivity\ImageProcessingActivity\obj\Debug\net8.0-windows\ImageProcessingActivity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\John Lyster\source\repos\ImageProcessingActivity\ImageProcessingActivity\obj\Debug\net8.0-windows\ImageProcessingActivity.AssemblyInfoInputs.cache
+C:\Users\John Lyster\source\repos\ImageProcessingActivity\ImageProcessingActivity\obj\Debug\net8.0-windows\ImageProcessingActivity.AssemblyInfo.cs
+C:\Users\John Lyster\source\repos\ImageProcessingActivity\ImageProcessingActivity\obj\Debug\net8.0-windows\ImageProcessingActivity.csproj.CoreCompileInputs.cache
+C:\Users\John Lyster\source\repos\ImageProcessingActivity\ImageProcessingActivity\obj\Debug\net8.0-windows\ImageProcessingActivity.dll
+C:\Users\John Lyster\source\repos\ImageProcessingActivity\ImageProcessingActivity\obj\Debug\net8.0-windows\refint\ImageProcessingActivity.dll
+C:\Users\John Lyster\source\repos\ImageProcessingActivity\ImageProcessingActivity\obj\Debug\net8.0-windows\ImageProcessingActivity.pdb
+C:\Users\John Lyster\source\repos\ImageProcessingActivity\ImageProcessingActivity\obj\Debug\net8.0-windows\ImageProcessingActivity.genruntimeconfig.cache
+C:\Users\John Lyster\source\repos\ImageProcessingActivity\ImageProcessingActivity\obj\Debug\net8.0-windows\ref\ImageProcessingActivity.dll
+C:\Users\John Lyster\source\repos\ImageProcessingActivity\ImageProcessingActivity\obj\Debug\net8.0-windows\ImageProcessingActivity.Form2.resources
+C:\Users\John Lyster\source\repos\ImageProcessingActivity - Copy\ImageProcessingActivity\bin\Debug\net8.0-windows\ImageProcessingActivity.exe
+C:\Users\John Lyster\source\repos\ImageProcessingActivity - Copy\ImageProcessingActivity\bin\Debug\net8.0-windows\ImageProcessingActivity.deps.json
+C:\Users\John Lyster\source\repos\ImageProcessingActivity - Copy\ImageProcessingActivity\bin\Debug\net8.0-windows\ImageProcessingActivity.runtimeconfig.json
+C:\Users\John Lyster\source\repos\ImageProcessingActivity - Copy\ImageProcessingActivity\bin\Debug\net8.0-windows\ImageProcessingActivity.dll
+C:\Users\John Lyster\source\repos\ImageProcessingActivity - Copy\ImageProcessingActivity\bin\Debug\net8.0-windows\ImageProcessingActivity.pdb
+C:\Users\John Lyster\source\repos\ImageProcessingActivity - Copy\ImageProcessingActivity\obj\Debug\net8.0-windows\ImageProcessingActivity.Form1.resources
+C:\Users\John Lyster\source\repos\ImageProcessingActivity - Copy\ImageProcessingActivity\obj\Debug\net8.0-windows\ImageProcessingActivity.Form2.resources
+C:\Users\John Lyster\source\repos\ImageProcessingActivity - Copy\ImageProcessingActivity\obj\Debug\net8.0-windows\ImageProcessingActivity.csproj.GenerateResource.cache
+C:\Users\John Lyster\source\repos\ImageProcessingActivity - Copy\ImageProcessingActivity\obj\Debug\net8.0-windows\ImageProcessingActivity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\John Lyster\source\repos\ImageProcessingActivity - Copy\ImageProcessingActivity\obj\Debug\net8.0-windows\ImageProcessingActivity.AssemblyInfoInputs.cache
+C:\Users\John Lyster\source\repos\ImageProcessingActivity - Copy\ImageProcessingActivity\obj\Debug\net8.0-windows\ImageProcessingActivity.AssemblyInfo.cs
+C:\Users\John Lyster\source\repos\ImageProcessingActivity - Copy\ImageProcessingActivity\obj\Debug\net8.0-windows\ImageProcessingActivity.csproj.CoreCompileInputs.cache
+C:\Users\John Lyster\source\repos\ImageProcessingActivity - Copy\ImageProcessingActivity\obj\Debug\net8.0-windows\ImageProcessingActivity.dll
+C:\Users\John Lyster\source\repos\ImageProcessingActivity - Copy\ImageProcessingActivity\obj\Debug\net8.0-windows\refint\ImageProcessingActivity.dll
+C:\Users\John Lyster\source\repos\ImageProcessingActivity - Copy\ImageProcessingActivity\obj\Debug\net8.0-windows\ImageProcessingActivity.pdb
+C:\Users\John Lyster\source\repos\ImageProcessingActivity - Copy\ImageProcessingActivity\obj\Debug\net8.0-windows\ImageProcessingActivity.genruntimeconfig.cache
+C:\Users\John Lyster\source\repos\ImageProcessingActivity - Copy\ImageProcessingActivity\obj\Debug\net8.0-windows\ref\ImageProcessingActivity.dll
