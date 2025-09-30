@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\John Lyster\\source\\repos\\ImageProcessingActivity - Copy\\Form2\\Form2.csproj": {}
+    "C:\\Users\\Clyde\\source\\repos\\ImageProcessingActivity - Copy\\Form2\\Form2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\John Lyster\\source\\repos\\ImageProcessingActivity - Copy\\Form2\\Form2.csproj": {
+    "C:\\Users\\Clyde\\source\\repos\\ImageProcessingActivity - Copy\\Form2\\Form2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\John Lyster\\source\\repos\\ImageProcessingActivity - Copy\\Form2\\Form2.csproj",
+        "projectUniqueName": "C:\\Users\\Clyde\\source\\repos\\ImageProcessingActivity - Copy\\Form2\\Form2.csproj",
         "projectName": "Form2",
-        "projectPath": "C:\\Users\\John Lyster\\source\\repos\\ImageProcessingActivity - Copy\\Form2\\Form2.csproj",
-        "packagesPath": "C:\\Users\\John Lyster\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\John Lyster\\source\\repos\\ImageProcessingActivity - Copy\\Form2\\obj\\",
+        "projectPath": "C:\\Users\\Clyde\\source\\repos\\ImageProcessingActivity - Copy\\Form2\\Form2.csproj",
+        "packagesPath": "C:\\Users\\Clyde\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Clyde\\source\\repos\\ImageProcessingActivity - Copy\\Form2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\John Lyster\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Clyde\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -73,4 +73,5 @@
       }
     }
   }
+
 }
