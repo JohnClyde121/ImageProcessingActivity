@@ -7,16 +7,15 @@ namespace ImageProcessing
 {
     public partial class Form1 : Form
     {
-        private Bitmap originalImage;    // For Part 1 filters
-        private Bitmap processedImage;   // For output
-        private Bitmap imageA;           // Original image (for subtraction)
-        private Bitmap imageB;           // Green background image (for subtraction)
+        private Bitmap originalImage;   
+        private Bitmap processedImage;   
+        private Bitmap imageA;           
+        private Bitmap imageB;           
 
         public Form1()
         {
             InitializeComponent();
 
-            // Fill ComboBox with options
             cmbFilters.Items.AddRange(new string[]
             {
                 "Copy",
@@ -34,7 +33,6 @@ namespace ImageProcessing
             cmbFilters.SelectedIndex = 0;
         }
 
-        // === Load Image (for Part 1 filters) ===
         private void btnLoad_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
@@ -48,7 +46,6 @@ namespace ImageProcessing
             }
         }
 
-        // === Apply Selected Filter ===
         private void btnApply_Click(object sender, EventArgs e)
         {
             if (originalImage == null && cmbFilters.SelectedItem.ToString() != "Image Subtraction (Green Screen)")
@@ -119,7 +116,6 @@ namespace ImageProcessing
         }
 
 
-        // === Save Processed Image ===
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (processedImage == null)
@@ -139,7 +135,6 @@ namespace ImageProcessing
             }
         }
 
-        // ================= FILTER FUNCTIONS =================
 
         private Bitmap Grayscale(Bitmap src)
         {
@@ -192,7 +187,6 @@ namespace ImageProcessing
             return bmp;
         }
 
-        // === Show Histogram in popup window ===
         private void ShowHistogram(Bitmap bmp)
         {
             int[] histogram = new int[256];
@@ -221,10 +215,8 @@ namespace ImageProcessing
             histForm.Show();
         }
 
-        // ================= SUBTRACTION (STEP 2) =================
         private void RunImageSubtraction()
         {
-            // Load ImageA and ImageB first
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
                 ofd.Title = "Select Image A (Original)";
@@ -254,14 +246,13 @@ namespace ImageProcessing
                     Color ca = imageA.GetPixel(x, y);
                     Color cb = imageB.GetPixel(x, y);
 
-                    // Check if green
                     if (cb.G > 150 && cb.R < 100 && cb.B < 100)
                     {
-                        result.SetPixel(x, y, ca); // Replace with image A pixel
+                        result.SetPixel(x, y, ca); 
                     }
                     else
                     {
-                        result.SetPixel(x, y, cb); // Keep B pixel
+                        result.SetPixel(x, y, cb); 
                     }
                 }
             }
@@ -272,3 +263,4 @@ namespace ImageProcessing
      
     }
 }
+
