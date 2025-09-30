@@ -1,235 +1,180 @@
+using System;
+using System.Drawing;
 using System.Windows.Forms;
-using static System.Windows.Forms.DataFormats;
+using Emgu.CV;
+using Emgu.CV.CvEnum;
+using Emgu.CV.Structure;
 
 namespace ImageProcessingActivity
 {
     public partial class Form1 : Form
     {
+        private Mat inputImage;
+
         public Form1()
         {
             InitializeComponent();
-        }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (pbCopy.Image != null)
+           //combo box
+            choices.Items.AddRange(new object[]
             {
-                SaveFileDialog sfd = new SaveFileDialog();
-                sfd.Title = "Save image as";
-                sfd.Filter = "JPEG Image|*.jpg|PNG Image|*.png|Bitmap Image|*.bmp";
-
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    string extension = Path.GetExtension(sfd.FileName).ToLower();
-
-                    switch (extension)
-                    {
-                        case ".jpg":
-                        case ".jpeg":
-                            pbCopy.Image.Save(sfd.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
-                            break;
-
-                        case ".png":
-                            pbCopy.Image.Save(sfd.FileName, System.Drawing.Imaging.ImageFormat.Png);
-                            break;
-
-                        case ".bmp":
-                            pbCopy.Image.Save(sfd.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
-                            break;
-
-                        default:
-                            MessageBox.Show("Unsupported format selected.");
-                            break;
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("No image to save!");
-            }
-        }
-
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if (choices.SelectedItem == null) return;
-            string selected = choices.SelectedItem.ToString();
-            switch (selected)
-            {
-                case "Basic Copy":
-                    basicCopyConversion();
-                    break;
-                case "Grey Scale":
-                    greyScaleConversion();
-                    break;
-                case "Color Inversion":
-                    colorInversion();
-                    break;
-                case "Histogram":
-                    histogramConversion();
-                    break;
-                case "Sepia":
-                    sepiaConversion();
-                    break;
-            }
-        }
-        private void basicCopyConversion()
-        {
-            if (pbOrig.Image != null)
-            {
-                pbCopy.Image = (Image)pbOrig.Image.Clone();
-            }
-
-        }
-        private void greyScaleConversion()
-        {
-            if (pbOrig.Image == null) return;
-
-            Bitmap bmp = new Bitmap(pbOrig.Image);
-
-            for (int y = 0; y < bmp.Height; y++)
-            {
-                for (int x = 0; x < bmp.Width; x++)
-                {
-                    Color c = bmp.GetPixel(x, y);
-                    int grey = (int)(0.3 * c.R + 0.59 * c.G + 0.11 * c.B);
-                    bmp.SetPixel(x, y, Color.FromArgb(grey, grey, grey));
-                }
-            }
-
-            pbCopy.Image = bmp;
-        }
-
-        private void colorInversion()
-        {
-            if (pbOrig.Image == null) return;
-
-            Bitmap bmp = new Bitmap(pbOrig.Image);
-
-            for (int y = 0; y < bmp.Height; y++)
-            {
-                for (int x = 0; x < bmp.Width; x++)
-                {
-                    Color c = bmp.GetPixel(x, y);
-                    Color inverted = Color.FromArgb(255 - c.R, 255 - c.G, 255 - c.B);
-                    bmp.SetPixel(x, y, inverted);
-                }
-            }
-
-            pbCopy.Image = bmp;
-        }
-
-        private void histogramConversion()
-        {
-            if (pbOrig.Image == null) return;
-
-            Bitmap bmp = new Bitmap(pbOrig.Image);
-            int[] histogram = new int[256];
-
-            for (int y = 0; y < bmp.Height; y++)
-            {
-                for (int x = 0; x < bmp.Width; x++)
-                {
-                    Color c = bmp.GetPixel(x, y);
-                    int gray = (int)(0.3 * c.R + 0.59 * c.G + 0.11 * c.B);
-                    histogram[gray]++;
-                }
-            }
-
-            int max = 0;
-            for (int i = 0; i < 256; i++)
-            {
-                if (histogram[i] > max)
-                    max = histogram[i];
-            }
-
-            int width = 512;  
-            int height = 400;
-            Bitmap histImage = new Bitmap(width, height);
-
-            using (Graphics g = Graphics.FromImage(histImage))
-            {
-                g.Clear(Color.White);
-                Pen pen = new Pen(Color.Black);
-
-                for (int i = 0; i < 256; i++)
-                {
-                    float normalized = (float)histogram[i] / max;
-                    int barHeight = (int)(normalized * height);
-
-                    g.DrawLine(pen,
-                        new Point(i * 2, height - 1),
-                        new Point(i * 2, height - 1 - barHeight));
-                }
-            }
-
-            pbCopy.Image = histImage;
-        }
-
-        private void sepiaConversion()
-        {
-            if (pbOrig.Image == null) return;
-
-            Bitmap bmp = new Bitmap(pbOrig.Image);
-
-            for (int y = 0; y < bmp.Height; y++)
-            {
-                for (int x = 0; x < bmp.Width; x++)
-                {
-                    Color c = bmp.GetPixel(x, y);
-                    int tr = (int)(0.393 * c.R + 0.769 * c.G + 0.189 * c.B);
-                    int tg = (int)(0.349 * c.R + 0.686 * c.G + 0.168 * c.B);
-                    int tb = (int)(0.272 * c.R + 0.534 * c.G + 0.131 * c.B);
-
-                    tr = Math.Min(255, tr);
-                    tg = Math.Min(255, tg);
-                    tb = Math.Min(255, tb);
-
-                    bmp.SetPixel(x, y, Color.FromArgb(tr, tg, tb));
-                }
-            }
-            pbCopy.Image = bmp;
-
-        }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+                "Basic Copy",
+                "Grey Scale",
+                "Color Inversion",
+                "Histogram",
+                "Sepia",
+                "Smooth",
+                "Gaussian Blur",
+                "Sharpen",
+                "Mean Removal",
+                "Emboss"
+            });
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Title = "Select an image";
-            ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
-            ofd.InitialDirectory = @"D:\School\3rd Yr 1st Sem\C#";
+            ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                pbOrig.Image = new Bitmap(ofd.FileName);
+                inputImage = CvInvoke.Imread(ofd.FileName, ImreadModes.Color);
+                pbOrig.Image = inputImage.ToBitmap();
             }
         }
 
-        private void pbCopy_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
+            if (choices.SelectedItem == null || inputImage == null) return;
+            string selected = choices.SelectedItem.ToString();
 
+            Mat output = new Mat();
+
+            switch (selected)
+            {
+                case "Basic Copy":
+                    output = inputImage.Clone();
+                    break;
+
+                case "Grey Scale":
+                    CvInvoke.CvtColor(inputImage, output, ColorConversion.Bgr2Gray);
+                    CvInvoke.CvtColor(output, output, ColorConversion.Gray2Bgr); // keep 3 channels for display
+                    break;
+
+                case "Color Inversion":
+                    CvInvoke.BitwiseNot(inputImage, output);
+                    break;
+
+                case "Histogram":
+                    output = CreateHistogram(inputImage);
+                    break;
+
+                case "Sepia":
+                    output = ApplySepia(inputImage);
+                    break;
+
+                case "Smooth":
+                    CvInvoke.Blur(inputImage, output, new System.Drawing.Size(3, 3), new System.Drawing.Point(-1, -1));
+                    break;
+
+                case "Gaussian Blur":
+                    CvInvoke.GaussianBlur(inputImage, output, new System.Drawing.Size(5, 5), 1.5);
+                    break;
+
+                case "Sharpen":
+                    float[,] sharpenKernel = {
+                        { 0, -1, 0 },
+                        { -1, 5, -1 },
+                        { 0, -1, 0 }
+                    };
+                    Convolution(inputImage, output, sharpenKernel);
+                    break;
+
+                case "Mean Removal":
+                    float[,] meanKernel = {
+                        { -1, -1, -1 },
+                        { -1, 9, -1 },
+                        { -1, -1, -1 }
+                    };
+                    Convolution(inputImage, output, meanKernel);
+                    break;
+
+                case "Emboss":
+                    float[,] embossKernel = {
+                        { -2, -1, 0 },
+                        { -1, 1, 1 },
+                        { 0, 1, 2 }
+                    };
+                    Convolution(inputImage, output, embossKernel, offset: 128);
+                    break;
+
+                default:
+                    output = inputImage.Clone();
+                    break;
+            }
+
+            pbCopy.Image = output.ToBitmap();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Convolution(Mat input, Mat output, float[,] kernel, float offset = 0)
         {
-            Form2 frm2 = new Form2();
-            frm2.Show();
-            this.Hide();
+            var convKernel = new Emgu.CV.Matrix<float>(kernel);
+            CvInvoke.Filter2D(input, output, convKernel, new System.Drawing.Point(-1, -1), offset, BorderType.Default);
+        }
+
+        private Mat ApplySepia(Mat input)
+        {
+            Image<Bgr, byte> img = input.ToImage<Bgr, byte>();
+
+            for (int y = 0; y < img.Rows; y++)
+            {
+                for (int x = 0; x < img.Cols; x++)
+                {
+                    Bgr c = img[y, x];
+                    double tr = 0.393 * c.Red + 0.769 * c.Green + 0.189 * c.Blue;
+                    double tg = 0.349 * c.Red + 0.686 * c.Green + 0.168 * c.Blue;
+                    double tb = 0.272 * c.Red + 0.534 * c.Green + 0.131 * c.Blue;
+
+                    img[y, x] = new Bgr(
+                        Math.Min(255, tb),
+                        Math.Min(255, tg),
+                        Math.Min(255, tr)
+                    );
+                }
+            }
+            return img.Mat;
+        }
+
+        private Mat CreateHistogram(Mat input)
+        {
+            Mat gray = new Mat();
+            CvInvoke.CvtColor(input, gray, ColorConversion.Bgr2Gray);
+
+            
+            DenseHistogram hist = new DenseHistogram(256, new RangeF(0, 256));
+            hist.Calculate(new Mat[] { gray }, false, null);
+
+            float[] histData = new float[256];
+            hist.MatND.ManagedArray.CopyTo(histData, 0);
+
+            int histWidth = 512, histHeight = 400;
+            Mat histImage = new Mat(new System.Drawing.Size(histWidth, histHeight), DepthType.Cv8U, 3);
+            histImage.SetTo(new MCvScalar(255, 255, 255));
+
+            CvInvoke.Normalize(hist, hist, 0, histImage.Rows, NormType.MinMax);
+
+            for (int i = 1; i < 256; i++)
+            {
+                CvInvoke.Line(
+                    histImage,
+                    new System.Drawing.Point((i - 1) * 2, histHeight - (int)Math.Round(histData[i - 1])),
+                    new System.Drawing.Point(i * 2, histHeight - (int)Math.Round(histData[i])),
+                    new MCvScalar(0, 0, 0),
+                    2);
+            }
+
+            return histImage;
         }
     }
 }
