@@ -4,7 +4,6 @@ using System.Drawing.Imaging;
 
 namespace ImageProcessing
 {
-    // Matrix for convolution filters
     public class ConvMatrix
     {
         public int TopLeft = 0, TopMid = 0, TopRight = 0;
@@ -22,7 +21,6 @@ namespace ImageProcessing
 
     public class BitmapFilter
     {
-        // Generic convolution filter
         public static bool Conv3x3(Bitmap b, ConvMatrix m)
         {
             if (m.Factor == 0)
@@ -88,7 +86,7 @@ namespace ImageProcessing
             return true;
         }
 
-        // Smooth filter
+        //Smooth filter
         public static bool Smooth(Bitmap b, int nWeight = 1)
         {
             ConvMatrix m = new ConvMatrix();
@@ -99,7 +97,7 @@ namespace ImageProcessing
             return Conv3x3(b, m);
         }
 
-        // Gaussian Blur filter
+        //Gaussian Blur filter
         public static bool GaussianBlur(Bitmap b, int nWeight = 4)
         {
             ConvMatrix m = new ConvMatrix();
@@ -110,7 +108,7 @@ namespace ImageProcessing
             return Conv3x3(b, m);
         }
 
-        // Sharpen filter
+        //Sharpen filter
         public static bool Sharpen(Bitmap b, int nWeight = 11)
         {
             ConvMatrix m = new ConvMatrix();
@@ -121,7 +119,7 @@ namespace ImageProcessing
             return Conv3x3(b, m);
         }
 
-        // Mean Removal filter
+        //Mean Removal filter
         public static bool MeanRemoval(Bitmap b, int nWeight = 9)
         {
             ConvMatrix m = new ConvMatrix();
@@ -132,7 +130,7 @@ namespace ImageProcessing
             return Conv3x3(b, m);
         }
 
-        // Emboss filter
+        //Emboss filter
         public static bool Emboss(Bitmap b)
         {
             ConvMatrix m = new ConvMatrix();
@@ -144,3 +142,4 @@ namespace ImageProcessing
         }
     }
 }
+
